@@ -1,0 +1,11 @@
+# Planning notes stay local.
+/PLAN.md
+
+# Banner review frames written by scripts/check-banner.sh --shots
+/shots/
+
+# Editor and OS clutter
+.DS_Store
+*.swp
+.vscode/
+.idea/

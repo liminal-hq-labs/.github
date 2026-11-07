@@ -1,0 +1,12 @@
+{
+  "default": true,
+  // Long single-line paragraphs are intentional (AGENTS.md: don't hard-wrap markdown prose).
+  "MD013": false,
+  // The profile README centres its hero with inline HTML.
+  "MD033": false,
+  // Hard tabs are house style (tab-indented code samples).
+  "MD010": false,
+  "MD024": { "siblings_only": true },
+  // A README may open with a centred hero before its title.
+  "MD041": false
+}
