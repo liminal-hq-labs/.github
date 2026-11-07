@@ -9,3 +9,6 @@
 *.swp
 .vscode/
 .idea/
+
+# Python bytecode from the banner checker
+__pycache__/

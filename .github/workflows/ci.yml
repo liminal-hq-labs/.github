@@ -1,0 +1,76 @@
+# Checks the docs, licence headers and hero banner, one job per check.
+#
+# (c) Copyright 2026 Liminal HQ, Scott Morris
+# SPDX-License-Identifier: Apache-2.0 OR MIT
+
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  markdown:
+    name: Markdown lint
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Run markdownlint-cli2
+        uses: DavidAnson/markdownlint-cli2-action@v24
+        with:
+          globs: '**/*.md'
+
+  headers:
+    name: Licence headers
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Check SPDX headers
+        run: bash scripts/check-headers.sh
+
+  banner:
+    name: Hero banner
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Install SVG tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libxml2-utils librsvg2-bin fonts-dejavu-core fonts-liberation
+
+      # The runner image ships Google Chrome, which the text-fit pass drives headless.
+      - name: Check the banner
+        env:
+          BANNER_REQUIRE_RENDER: '1'
+        run: bash scripts/check-banner.sh
