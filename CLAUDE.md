@@ -22,5 +22,5 @@ docker run --rm -v "$PWD:/workdir" davidanson/markdownlint-cli2:v0.17.2 "**/*.md
 bash scripts/check-headers.sh
 bash scripts/check-banner.sh                 # add --shots /tmp/shots for review frames
 docker run --rm -v "$PWD:/mnt" -w /mnt koalaman/shellcheck:stable scripts/*.sh
-docker run --rm -v "$PWD:/repo" rhysd/actionlint -chdir /repo
+docker run --rm -v "$PWD:/repo" -w /repo rhysd/actionlint
 ```
