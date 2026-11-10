@@ -112,6 +112,7 @@ README.md AGENTS.md CLAUDE.md LICENSE-APACHE LICENSE-MIT
 .editorconfig .markdownlint.jsonc .gitignore
 profile/README.md     organisation landing page on github.com/liminal-hq-labs
 assets/labs-hero.svg  animated hero banner
+assets/labs-logo.svg  the Labs logo, square, for the organisation picture
 docs/labs-charter.md  what a Labs project is, graduation, sunsetting, starting a project
 scripts/              header check, banner check and its Chromium text-fit harness
 .github/workflows/    CI: markdown lint, header check, banner check
