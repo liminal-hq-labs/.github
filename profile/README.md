@@ -16,7 +16,6 @@ More experiments soon.
 
 - **Experimental status.** Every project here is early. Expect rough edges, missing pieces and honest status notes in each README.
 - **Things may change or be dropped.** Interfaces, file formats and whole projects can change or be retired without a deprecation period. Retired projects are archived with a note, never deleted.
-- **Public from day one.** Code, issues and decisions are open from the first commit, under `Apache-2.0 OR MIT`.
 - **Graduation.** When an experiment proves itself, its repository moves to [Liminal HQ](https://github.com/liminal-hq) with its history, stars and links intact.
 
 The details are in the [Labs charter](https://github.com/liminal-hq-labs/.github/blob/main/docs/labs-charter.md).
